@@ -1,5 +1,5 @@
 [
-  {
+    {
     "personalId": "207910787",
     "networkId" : "207910",
     "emp":"1",
@@ -10,6 +10,24 @@
     "phone": "050-1234567",
     "email": "mkhaimov@org.local",
     "currentComputer": "COMP-PC01",
+    "loginTime": "2026-06-08 08:30:00",
+    "os": "Windows 11",
+    "ipAddress": "10.0.0.15",
+    "domain": "ORG.LOCAL",
+    "printers": ["avi-p1880", "avi-p1880-2"],
+    "hrStatus": "Active"
+  },
+    {
+    "personalId": "207910787",
+    "networkId" : "207910",
+    "emp":"1",
+    "firstName": "אורטל",
+    "lastName": "מלכה מרקו",
+    "SapId": "207910",
+    "department": "IT Helpdesk",
+    "phone": "050-1234567",
+    "email": "omarko@org.local",
+    "currentComputer": "pc-marko",
     "loginTime": "2026-06-08 08:30:00",
     "os": "Windows 11",
     "ipAddress": "10.0.0.15",
