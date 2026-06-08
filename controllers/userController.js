@@ -16,10 +16,11 @@ exports.searchUsers = (req, res) => {
   }
 
   const filteredUsers = users.filter(user => {
+    const lowerQuery = query.toLowerCase();
     return (
-      user.personalId.includes(query) ||
-      user.firstName.includes(query) ||
-      user.lastName.includes(query)
+      user.personalId.includes(lowerQuery) ||
+      user.firstName.toLowerCase().includes(lowerQuery) ||
+      user.lastName.toLowerCase().includes(lowerQuery)
     );
   });
 

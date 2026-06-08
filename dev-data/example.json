@@ -1,8 +1,9 @@
 [
   {
     "personalId": "123456",
-    "firstName": "Meir",
-    "lastName": "Haimov",
+    "firstName": "מאיר",
+    "lastName": "חיימוב",
+    "SapId": "123456",
     "department": "IT Helpdesk",
     "phone": "050-1234567",
     "email": "mkhaimov@org.local",
@@ -18,6 +19,23 @@
     "personalId": "789012",
     "firstName": "Lidor",
     "lastName": "Salto",
+    "SapId": "789012",
+    "department": "IT Helpdesk",
+    "phone": "052-7654321",
+    "email": "lsalto@org.local",
+    "currentComputer": "hdesk2",
+    "loginTime": "2026-06-08 07:15:00",
+    "os": "Windows 10 Enterprise",
+    "ipAddress": "10.0.0.52",
+    "domain": "ORG.LOCAL",
+    "printers": ["avi-p1880"],
+    "hrStatus": "Active"
+  },
+    {
+    "personalId": "318550670",
+    "firstName": "Daniel",
+    "lastName": "Hofrat",
+    "SapId": "123456",
     "department": "IT Helpdesk",
     "phone": "052-7654321",
     "email": "lsalto@org.local",
@@ -29,4 +47,5 @@
     "printers": ["avi-p1880"],
     "hrStatus": "Active"
   }
+
 ]

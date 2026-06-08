@@ -4,7 +4,7 @@ const userRouter = require('./routes/userRoutes');
 const app = express();
 
 app.use(express.json());
-
+app.use(express.static(`${__dirname}/public`));
 app.use('/api/v1/users', userRouter);
 
 app.get('/api/v1/health', (req, res) => {

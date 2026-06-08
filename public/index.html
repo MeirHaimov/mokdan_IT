@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mokdan</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f6f9; margin: 20px; color: #333; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #0056b3; }
+        .search-box { position: relative; margin-bottom: 20px; }
+        input[type="text"] { width: 100%; padding: 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .autocomplete-list { position: absolute; width: 100%; background: white; border: 1px solid #ccc; border-top: none; max-height: 200px; overflow-y: auto; z-index: 1000; display: none; border-radius: 0 0 4px 4px; }
+        .autocomplete-item { padding: 10px; cursor: pointer; }
+        .autocomplete-item:hover { background-color: #f0f0f0; }
+        .details-card { display: none; border-top: 2px solid #0056b3; padding-top: 20px; margin-top: 20px; }
+        .grid { display: grid; grid-template-columns: 1px 1px; gap: 15px; }
+        .info-group { background: #f8f9fa; padding: 10px; border-radius: 4px; border-right: 4px solid #0056b3; }
+        .info-label { font-weight: bold; font-size: 12px; color: #666; }
+        .info-value { font-size: 16px; margin-top: 5px; }
+        .btn-group { margin-top: 20px; display: flex; gap: 10px; }
+        button { padding: 10px 15px; font-size: 14px; border: none; border-radius: 4px; cursor: pointer; color: white; }
+        .btn-action { background-color: #28a745; }
+        .btn-remote { background-color: #dc3545; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>מערכת מוקדן </h1>
+    
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder= "מי מתקשר?">
+        <div id="autocompleteList" class="autocomplete-list"></div>
+    </div>
+
+    <div id="detailsCard" class="details-card">
+        <h3>פרטי עובד ומחשב</h3>
+        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px;">
+            <div class="info-group"><div class="info-label">שם מלא</div><div class="info-value" id="resName"></div></div>
+            <div class="info-group"><div class="info-label">זיהוי סאפ</div><div class="info-value" id="sapId"></div></div>
+            <div class="info-group"><div class="info-label">מספר אישי</div><div class="info-value" id="resId"></div></div>
+            <div class="info-group"><div class="info-label">מחלקה</div><div class="info-value" id="resDept"></div></div>
+            <div class="info-group"><div class="info-label">טלפון</div><div class="info-value" id="resPhone"></div></div>
+            <div class="info-group"><div class="info-label">מחשב מחובר</div><div class="info-value" id="resComp"></div></div>
+            <div class="info-group"><div class="info-label">כתובת IP</div><div class="info-value" id="resIP"></div></div>
+            <div class="info-group"><div class="info-label">מערכת הפעלה</div><div class="info-value" id="resOS"></div></div>
+            <div class="info-group"><div class="info-label">שעת התחברות</div><div class="info-value" id="resLoginTime"></div></div>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn-action" onclick="alert('ממתין ללידור')">אימות פרטים</button>
+            <button class="btn-action" id="btnPrinters">מדפסות </button>
+            <button class="btn-remote" id="btnRemote"> השתלטות </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const autocompleteList = document.getElementById('autocompleteList');
+    const detailsCard = document.getElementById('detailsCard');
+
+    searchInput.addEventListener('input', async (e) => {
+        const val = e.target.value;
+        if (!val) {
+            autocompleteList.style.display = 'none';
+            return;
+        }
+
+        const res = await fetch(`/api/v1/users/search?query=${val}`);
+        const data = await res.json();
+
+        if (data.status === 'success' && data.results > 0) {
+            autocompleteList.innerHTML = '';
+            autocompleteList.style.display = 'block';
+            
+            data.data.users.forEach(user => {
+                const item = document.createElement('div');
+                item.className = 'autocomplete-item';
+                item.textContent = `${user.firstName} ${user.lastName} (${user.personalId})`;
+                
+                item.addEventListener('click', () => {
+                    showUserDetails(user);
+                });
+                autocompleteList.appendChild(item);
+            });
+        } else {
+            autocompleteList.style.display = 'none';
+        }
+    });
+
+    function showUserDetails(user) {
+        searchInput.value = `${user.firstName} ${user.lastName} ${user.personalId}`;
+        autocompleteList.style.display = 'none';
+
+        document.getElementById('resName').textContent = `${user.firstName} ${user.lastName}`;
+        document.getElementById('resId').textContent = user.personalId;
+        document.getElementById('sapId').textContent = user.SapId;
+        document.getElementById('resDept').textContent = user.department;
+        document.getElementById('resPhone').textContent = user.phone;
+        document.getElementById('resComp').textContent = user.currentComputer;
+        document.getElementById('resIP').textContent = user.ipAddress;
+        document.getElementById('resOS').textContent = user.os;
+        document.getElementById('resLoginTime').textContent = user.loginTime;
+
+        document.getElementById('btnPrinters').onclick = () => {
+            alert(`מדפסות מחוברות: \n${user.printers.join('\n')}`);
+        };
+
+        document.getElementById('btnRemote').onclick = () => {
+            alert(`סקריפט השתלטות של לידור  ${user.currentComputer}`);
+        };
+
+        detailsCard.style.display = 'block';
+    }
+
+    document.addEventListener('click', (e) => {
+        if (e.target !== searchInput) autocompleteList.style.display = 'none';
+    });
+</script>
+</body>
+</html>
