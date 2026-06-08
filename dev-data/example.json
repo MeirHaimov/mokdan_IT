@@ -1,0 +1,32 @@
+[
+  {
+    "personalId": "123456",
+    "firstName": "Meir",
+    "lastName": "Haimov",
+    "department": "IT Helpdesk",
+    "phone": "050-1234567",
+    "email": "mkhaimov@org.local",
+    "currentComputer": "COMP-PC01",
+    "loginTime": "2026-06-08 08:30:00",
+    "os": "Windows 11 Pro",
+    "ipAddress": "10.0.0.15",
+    "domain": "ORG.LOCAL",
+    "printers": ["avi-p1880", "avi-p1880-2"],
+    "hrStatus": "Active"
+  },
+  {
+    "personalId": "789012",
+    "firstName": "Lidor",
+    "lastName": "Salto",
+    "department": "IT Helpdesk",
+    "phone": "052-7654321",
+    "email": "lsalto@org.local",
+    "currentComputer": "hdesk2",
+    "loginTime": "2026-06-08 07:15:00",
+    "os": "Windows 10 Enterprise",
+    "ipAddress": "10.0.0.52",
+    "domain": "ORG.LOCAL",
+    "printers": ["avi-p1880"],
+    "hrStatus": "Active"
+  }
+]
