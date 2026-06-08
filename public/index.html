@@ -35,11 +35,16 @@
     </div>
 
     <div id="detailsCard" class="details-card">
+        <!-- TODO: -->
         <h3>פרטי עובד ומחשב</h3>
         <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px;">
             <div class="info-group"><div class="info-label">שם מלא</div><div class="info-value" id="resName"></div></div>
-            <div class="info-group"><div class="info-label">זיהוי סאפ</div><div class="info-value" id="sapId"></div></div>
-            <div class="info-group"><div class="info-label">מספר אישי</div><div class="info-value" id="resId"></div></div>
+            <div class="info-group"><div class="info-label"> סוג עובד</div><div class="info-value" id="emp" ></div></div>
+            
+            <div class="info-group" id="sapGroup"><div class="info-label">זיהוי סאפ</div><div class="info-value" id="sapId"></div></div>
+            <div class="info-group" id="networkGroup"><div class="info-label">שם משתמש </div><div class="info-value" id="networkId"></div></div>
+            <div class="info-group" id="idGroup"><div class="info-label"> תעודת זהות</div><div class="info-value" id="resId"></div></div>
+            
             <div class="info-group"><div class="info-label">מחלקה</div><div class="info-value" id="resDept"></div></div>
             <div class="info-group"><div class="info-label">טלפון</div><div class="info-value" id="resPhone"></div></div>
             <div class="info-group"><div class="info-label">מחשב מחובר</div><div class="info-value" id="resComp"></div></div>
@@ -91,18 +96,36 @@
     });
 
     function showUserDetails(user) {
-        searchInput.value = `${user.firstName} ${user.lastName} ${user.personalId}`;
+        searchInput.value = `${user.firstName} ${user.lastName} - ${user.personalId}`;
         autocompleteList.style.display = 'none';
 
         document.getElementById('resName').textContent = `${user.firstName} ${user.lastName}`;
         document.getElementById('resId').textContent = user.personalId;
         document.getElementById('sapId').textContent = user.SapId;
+        document.getElementById('networkId').textContent = user.networkId || 'לא הוגדר';
         document.getElementById('resDept').textContent = user.department;
         document.getElementById('resPhone').textContent = user.phone;
         document.getElementById('resComp').textContent = user.currentComputer;
         document.getElementById('resIP').textContent = user.ipAddress;
         document.getElementById('resOS').textContent = user.os;
         document.getElementById('resLoginTime').textContent = user.loginTime;
+// TODO
+        document.getElementById('emp').textContent = user.emp === "1" ? "רשמי" : "קבלן" ;
+
+        const sapGroup = document.getElementById('sapGroup');
+        const networkGroup = document.getElementById('networkGroup');
+        const idGroup = document.getElementById('idGroup');
+
+        if (user.emp === "1" || user.emp === "2") {
+            sapGroup.style.display = 'block';
+            networkGroup.style.display = 'block';
+            idGroup.style.display = 'block';
+
+        } else {
+            sapGroup.style.display = 'none';
+            networkGroup.style.display = 'none';
+            idGroup.style.display = 'block';
+        }
 
         document.getElementById('btnPrinters').onclick = () => {
             alert(`מדפסות מחוברות: \n${user.printers.join('\n')}`);
