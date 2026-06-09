@@ -57,7 +57,7 @@ function showUserDetails(user) {
     document.getElementById('resIP').textContent = user.ipAddress;
     document.getElementById('resOS').textContent = user.os;
     document.getElementById('resLoginTime').textContent = user.loginTime;
-    document.getElementById('resHrStatus').textContent = user.hrStatus ==="Active" ? 'פעיל' : 'לא פעיל';
+    document.getElementById('resHrStatus').textContent = user.hrStatus === "Active" ? 'פעיל' : 'לא פעיל';
     document.getElementById('emp').textContent = user.emp === "1" ? 'תעשייה' : user.emp === "2" ? 'יועץ' : user.emp === "3" ? 'קבלן' : 'לא מוגדר';
 
     const sapGroup = document.getElementById('sapGroup');
@@ -81,9 +81,18 @@ function showUserDetails(user) {
     document.getElementById('btnRemote').onclick = () => {
         alert(`סקריפט השתלטות של לידור  ${user.currentComputer}`);
     };
+    
+ 
+    document.getElementById('btnDisk').onclick = () => {
+        alert(`פתיחת כונן C במחשב  ${user.currentComputer}`);
+    };
+    document.getElementById('btnSMS').onclick = () => {
+        alert(`שליחת אסמס למספר  ${user.phone}`);
+    };
 
     detailsCard.style.display = 'block';
 }
+
 
 document.addEventListener('click', (e) => {
     if (e.target !== searchInput) autocompleteList.style.display = 'none';
