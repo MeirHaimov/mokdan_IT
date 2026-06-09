@@ -90,6 +90,24 @@
     "hrStatus": "Active"
   },
     {
+    "personalId": "789012",
+    "networkId" : "789012",
+    "emp":"1",
+    "firstName": "LiGor",
+    "lastName": "Salto",
+    "SapId": "789012",
+    "department": "IT Helpdesk",
+    "phone": "052-7654321",
+    "email": "lsalto@org.local",
+    "currentComputer": "hdesk2",
+    "loginTime": "2026-06-08 07:15:00",
+    "os": "Windows 10",
+    "ipAddress": "10.0.0.52",
+    "domain": "ORG.LOCAL",
+    "printers": ["avi-p1880"],
+    "hrStatus": "Active"
+  },
+    {
     "personalId": "318550670",
     "networkId" : "318550670",
     "emp":"1",
