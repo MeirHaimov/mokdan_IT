@@ -6,16 +6,21 @@
     "firstName": "מאיר",
     "lastName": "חיימוב",
     "SapId": "207910",
-    "department": "IT Helpdesk",
+    "department": "8052",
     "phone": "050-1234567",
     "email": "mkhaimov@org.local",
-    "currentComputer": "COMP-PC01",
+    "currentComputer": "mmnx-mhaimov",
     "loginTime": "2026-06-08 08:30:00",
     "os": "Windows 11",
     "ipAddress": "10.0.0.15",
     "domain": "ORG.LOCAL",
     "printers": ["avi-p1880", "avi-p1880-2"],
-    "hrStatus": "Active"
+    "hrStatus": "Active",
+    "birthDate": "1999-05-22",
+    "startDate": "2026",
+    "pocName": "רינת בסטקר",
+    "pocPhone": "052-9876543",
+    "restartTime": "2026-06-08 07:00:00"
   },
     {
     "personalId": "207910787",
@@ -24,7 +29,7 @@
     "firstName": "אורטל",
     "lastName": "מלכה מרקו",
     "SapId": "207910",
-    "department": "IT Helpdesk",
+    "department": "8052",
     "phone": "050-1234567",
     "email": "omarko@org.local",
     "currentComputer": "pc-marko",
@@ -33,7 +38,12 @@
     "ipAddress": "10.0.0.15",
     "domain": "ORG.LOCAL",
     "printers": ["avi-p1880", "avi-p1880-2"],
-    "hrStatus": "Active"
+    "hrStatus": "Active",
+    "birthDate": "1999-05-22",
+    "startDate": "2026",
+    "pocName": "רינת בסטקר",
+    "pocPhone": "052-9876543",
+    "restartTime": "2026-06-08 07:00:00"
   },
     {
     "personalId": "210037149",
@@ -42,7 +52,7 @@
     "firstName": "יוני",
     "lastName": "זמור",
     "SapId": "210037149",
-    "department": "IT Helpdesk",
+    "department": "8052",
     "phone": "054-2177194",
     "email": "yzemmour@org.local",
     "currentComputer": "COMP-PC01",
@@ -51,7 +61,13 @@
     "ipAddress": "10.0.0.15",
     "domain": "ORG.LOCAL",
     "printers": ["avi-p1880", "avi-p1880-2"],
-    "hrStatus": "Active"
+    "hrStatus": "Active",
+    "birthDate": "1999-05-22",
+    "startDate": "2026",
+    "pocName": "רינת בסטקר",
+    "pocPhone": "052-9876543",
+    "restartTime": "2026-06-08 07:00:00"
+
   },
       {
     "personalId": "211680608",
@@ -60,7 +76,7 @@
     "firstName": "חיים",
     "lastName": "מליאנקר",
     "SapId": "21168",
-    "department": "IT Helpdesk",
+    "department": "8052",
     "phone": "054-2177194",
     "email": "hmalianker@org.local",
     "currentComputer": "COMP-PC01",
@@ -69,7 +85,12 @@
     "ipAddress": "10.0.0.15",
     "domain": "ORG.LOCAL",
     "printers": ["avi-p1880", "avi-p1880-2"],
-    "hrStatus": "Active"
+    "hrStatus": "Active",
+    "birthDate": "1999-05-22",
+    "startDate": "2026",
+    "pocName": "רינת בסטקר",
+    "pocPhone": "052-9876543",
+    "restartTime": "2026-06-08 07:00:00"
   },
   {
     "personalId": "789012",
@@ -78,7 +99,7 @@
     "firstName": "Lidor",
     "lastName": "Salto",
     "SapId": "789012",
-    "department": "IT Helpdesk",
+    "department": "8052",
     "phone": "052-7654321",
     "email": "lsalto@org.local",
     "currentComputer": "hdesk2",
@@ -87,7 +108,12 @@
     "ipAddress": "10.0.0.52",
     "domain": "ORG.LOCAL",
     "printers": ["avi-p1880"],
-    "hrStatus": "Active"
+    "hrStatus": "Active",
+    "birthDate": "1999-05-22",
+    "startDate": "2026",
+    "pocName": "רינת בסטקר",
+    "pocPhone": "052-9876543",
+    "restartTime": "2026-06-08 07:00:00"
   },
     {
     "personalId": "789012",
@@ -96,7 +122,7 @@
     "firstName": "LiGor",
     "lastName": "Salto",
     "SapId": "789012",
-    "department": "IT Helpdesk",
+    "department": "8052",
     "phone": "052-7654321",
     "email": "lsalto@org.local",
     "currentComputer": "hdesk2",
@@ -105,7 +131,12 @@
     "ipAddress": "10.0.0.52",
     "domain": "ORG.LOCAL",
     "printers": ["avi-p1880"],
-    "hrStatus": "Active"
+    "hrStatus": "Active",
+    "birthDate": "1999-05-22",
+    "startDate": "2026",
+    "pocName": "רינת בסטקר",
+    "pocPhone": "052-9876543",
+    "restartTime": "2026-06-08 07:00:00"
   },
     {
     "personalId": "318550670",
@@ -114,7 +145,7 @@
     "firstName": "Daniel",
     "lastName": "Hofrat",
     "SapId": "318550670",
-    "department": "IT Helpdesk",
+    "department": "8052",
     "phone": "052-7654321",
     "email": "dhofrat@org.local",
     "currentComputer": "hdesk2",
@@ -123,6 +154,11 @@
     "ipAddress": "10.0.0.52",
     "domain": "ORG.LOCAL",
     "printers": ["avi-p1880"],
-    "hrStatus": "Active"
+    "hrStatus": "Active",
+    "birthDate": "1999-05-22",
+    "startDate": "2026",
+    "pocName": "רינת בסטקר",
+    "pocPhone": "052-9876543",
+    "restartTime": "2026-06-08 07:00:00"
   }
 ]

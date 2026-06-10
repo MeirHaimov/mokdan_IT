@@ -34,7 +34,16 @@ searchInput.addEventListener('input', (e) => {
                     autocompleteList.appendChild(item);
                 });
             } else {
-                autocompleteList.style.display = 'none';
+                autocompleteList.innerHTML = ''; 
+                autocompleteList.style.display = 'block';
+                
+                const noResult = document.createElement('div');
+                noResult.className = 'autocomplete-item';
+                noResult.textContent = 'לא נמצאו תוצאות ';
+                noResult.style.color = '#2813e4'; 
+                noResult.style.cursor = 'default';
+                
+                autocompleteList.appendChild(noResult);
             }
         } catch (err) {
             console.error("DB ERROR", err);
@@ -48,17 +57,22 @@ function showUserDetails(user) {
 
     document.getElementById('cardTitle').textContent = `${user.firstName} ${user.lastName} - ${user.personalId}`;
     document.getElementById('resName').textContent = `${user.firstName} ${user.lastName}`;
-    document.getElementById('resId').textContent = user.personalId;
-    document.getElementById('sapId').textContent = user.SapId;
+    document.getElementById('resId').textContent = user.personalId|| 'לא מוגדר';;
+    document.getElementById('sapId').textContent = user.SapId|| 'לא מוגדר';;
     document.getElementById('networkId').textContent = user.networkId || 'לא מוגדר';
-    document.getElementById('resDept').textContent = user.department;
+    document.getElementById('resDept').textContent = user.department|| 'לא מוגדר';;
     document.getElementById('resPhone').textContent = user.phone || 'לא מוגדר';
-    document.getElementById('resComp').textContent = user.currentComputer;
-    document.getElementById('resIP').textContent = user.ipAddress;
-    document.getElementById('resOS').textContent = user.os;
-    document.getElementById('resLoginTime').textContent = user.loginTime;
+    document.getElementById('resComp').textContent = user.currentComputer|| '';
+    
+    document.getElementById('resIP').textContent = user.ipAddress || '';
+    document.getElementById('resOS').textContent = user.os  || '';
+    document.getElementById('resLoginTime').textContent = user.loginTime    || '';
     document.getElementById('resHrStatus').textContent = user.hrStatus === "Active" ? 'פעיל' : 'לא פעיל';
+    document.getElementById('resRestartTime').textContent = user.restartTime || '';
     document.getElementById('emp').textContent = user.emp === "1" ? 'תעשייה' : user.emp === "2" ? 'יועץ' : user.emp === "3" ? 'קבלן' : 'לא מוגדר';
+    document.getElementById('resLoginTime').textContent = user.loginTime;
+    document.getElementById('resPocName').textContent = user.pocName;
+    document.getElementById('resPocPhone').textContent = user.pocPhone;
 
     const sapGroup = document.getElementById('sapGroup');
     const networkGroup = document.getElementById('networkGroup');
@@ -74,6 +88,24 @@ function showUserDetails(user) {
         idGroup.style.display = 'block';
     }
 
+    document.getElementById('btnVerify').onclick = () => {
+        if (user.emp === "1") {
+            alert(
+                ` אימות פרטים :\n\n` +
+                `תעודת זהות: ${user.personalId}\n` +
+                `תאריך לידה: ${user.birthDate || 'לא מעודכן במערכת'}\n` +
+                `תחילת עבודה: ${user.startDate || 'לא מעודכן במערכת'}`
+            );
+        } 
+        else {
+            alert(
+                `אימות פרטים :\n\n` +
+                `תחילת עבודה: ${user.startDate || 'לא מעודכן במערכת'}\n` +
+                `שם מנהל מאשר: ${user.pocName || 'לא מעודכן במערכת'}\n` +
+                `טלפון מנהל: ${user.pocPhone || 'לא מעודכן במערכת'}`
+            );
+        }
+    };
     document.getElementById('btnPrinters').onclick = () => {
         alert(`מדפסות מחוברות: \n${user.printers.join('\n')}`);
     };
@@ -84,7 +116,9 @@ function showUserDetails(user) {
     
  
     document.getElementById('btnDisk').onclick = () => {
-        alert(`פתיחת כונן C במחשב  ${user.currentComputer}`);
+
+    const networkPath = `file:////${user.currentComputer}/c$`;
+    window.open(networkPath, '_blank');
     };
     document.getElementById('btnSMS').onclick = () => {
         alert(`שליחת אסמס למספר  ${user.phone}`);

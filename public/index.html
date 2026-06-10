@@ -25,17 +25,20 @@
             <div class="info-group" id="networkGroup"><div class="info-label">שם משתמש </div><div class="info-value" id="networkId"></div></div>
             <div class="info-group" id="idGroup"><div class="info-label"> תעודת זהות</div><div class="info-value" id="resId"></div></div>
             <div class="info-group"><div class="info-label"> סוג עובד</div><div class="info-value" id="emp" ></div></div>
-            <div class="info-group"><div class="info-label">מחלקה</div><div class="info-value" id="resDept"></div></div>
+            <div class="info-group"><div class="info-label">סטטוס</div><div class="info-value" id="resHrStatus"></div></div>
             <div class="info-group"><div class="info-label">טלפון</div><div class="info-value" id="resPhone"></div></div>
             <div class="info-group"><div class="info-label">מחשב מחובר</div><div class="info-value" id="resComp"></div></div>
             <div class="info-group"><div class="info-label">כתובת IP</div><div class="info-value" id="resIP"></div></div>
             <div class="info-group"><div class="info-label">מערכת הפעלה</div><div class="info-value" id="resOS"></div></div>
             <div class="info-group"><div class="info-label">שעת התחברות</div><div class="info-value" id="resLoginTime"></div></div>
-            <div class="info-group"><div class="info-label">סטטוס</div><div class="info-value" id="resHrStatus"></div></div>
+            <div class="info-group"><div class="info-label">שעת אתחול</div><div class="info-value" id="resRestartTime"></div></div>
+            <div class="info-group"><div class="info-label">מחלקה</div><div class="info-value" id="resDept"></div></div>
+            <div class="info-group" style="display: none;"><div class="info-label">שם מנהל מאשר</div><div class="info-value" id="resPocName"></div></div>
+            <div class="info-group" style="display: none;"><div class="info-label">טלפון מנהל</div><div class="info-value" id="resPocPhone"></div></div>
         </div>
 
         <div class="btn-group">
-            <button class="btn-action" onclick="alert('ממתין ללידור')">אימות פרטים</button>
+            <button class="btn-action" id="btnVerify">אימות פרטים</button>
             <button class="btn-remote" id="btnRemote"> השתלטות </button>
             <button class="btn-action" id="btnPrinters">מדפסות </button>
             <button class="btn-action" id="btnSMS">SMS שליחת </button>
